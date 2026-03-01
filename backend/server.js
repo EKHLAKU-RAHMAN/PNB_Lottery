@@ -44,8 +44,12 @@ const limiter = rateLimit({
 app.use(helmet());
 app.use(limiter);
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "https://punjablotteryresultonline.com",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: [
+    "https://punjablotteryresultonline.com",
+    "https://www.punjablotteryresultonline.com",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
 app.use(express.json());
