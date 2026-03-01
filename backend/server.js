@@ -45,6 +45,7 @@ app.use(helmet());
 app.use(limiter);
 app.use(cors({
   origin: process.env.FRONTEND_URL || "https://punjablotteryresultonline.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 app.use(express.json());
