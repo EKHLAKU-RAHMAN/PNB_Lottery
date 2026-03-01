@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Edit, Trash2, Filter, ChevronLeft, ChevronRight, Ticket as TicketIcon } from 'lucide-react'
-import axios from 'axios'
+import { apiClient } from '../../utils/api'
 
 const TicketManagement = () => {
   const [tickets, setTickets] = useState([])
@@ -27,7 +27,7 @@ const TicketManagement = () => {
         ...(statusFilter && { status: statusFilter })
       }
       
-      const response = await axios.get('/api/tickets', { params })
+      const response = await apiClient.get('/api/tickets', { params })
       setTickets(response.data.tickets)
       setTotalPages(response.data.pagination.pages)
     } catch (error) {
@@ -40,7 +40,7 @@ const TicketManagement = () => {
   const handleDelete = async (ticketId) => {
     if (window.confirm('Are you sure you want to delete this ticket?')) {
       try {
-        await axios.delete(`/api/tickets/${ticketId}`)
+        await apiClient.delete(`/api/tickets/${ticketId}`)
         fetchTickets()
       } catch (error) {
         console.error('Failed to delete ticket:', error)
@@ -56,7 +56,7 @@ const TicketManagement = () => {
   const handleUpdate = async (e) => {
     e.preventDefault()
     try {
-      await axios.put(`/api/tickets/${editingTicket._id}`, editingTicket)
+      await apiClient.put(`/api/tickets/${editingTicket._id}`, editingTicket)
       setShowEditModal(false)
       setEditingTicket(null)
       fetchTickets()

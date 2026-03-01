@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Trophy, Users, Star } from 'lucide-react'
-import axios from 'axios'
+import { apiClient } from '../utils/api'
 import { useSocket } from '../context/SocketContext'
 
 const WinnersSection = () => {
@@ -11,7 +11,7 @@ const WinnersSection = () => {
 
   const fetchWinners = async () => {
     try {
-      const response = await axios.get('/api/tickets/winners')
+      const response = await apiClient.get('/api/tickets/winners')
       setWinners(response.data.winners)
     } catch (error) {
       console.error('Failed to fetch winners:', error)

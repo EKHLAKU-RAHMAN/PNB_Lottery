@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Ticket, Phone, CheckCircle, XCircle, Clock } from 'lucide-react'
-import axios from 'axios'
+import { apiClient } from '../utils/api'
 
 const CheckTicketSection = () => {
   const [ticketNumber, setTicketNumber] = useState('')
@@ -17,7 +17,7 @@ const CheckTicketSection = () => {
     setResult(null)
 
     try {
-      const response = await axios.get('/api/tickets/check', {
+      const response = await apiClient.get('/api/tickets/check', {
         params: { ticketNumber }
       })
 

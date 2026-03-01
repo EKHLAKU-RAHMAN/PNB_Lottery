@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Save, X, Calendar, User, Phone, Ticket } from 'lucide-react'
-import axios from 'axios'
+import { apiClient } from '../../utils/api'
 
 const CreateTicket = () => {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ const CreateTicket = () => {
     setSuccess('')
 
     try {
-      const response = await axios.post('/api/tickets', formData)
+      const response = await apiClient.post('/api/tickets', formData)
       setSuccess('Ticket created successfully!')
       setFormData({
         ticketNumber: '',

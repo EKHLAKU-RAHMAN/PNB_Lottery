@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MessageSquare, Send, MapPin } from 'lucide-react'
-import axios from 'axios'
+import { apiClient } from '../utils/api'
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ const ContactSection = () => {
     setSuccess('')
 
     try {
-      const response = await axios.post('/api/contact', formData)
+      const response = await apiClient.post('/api/contact', formData)
       setSuccess(response.data.message)
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
