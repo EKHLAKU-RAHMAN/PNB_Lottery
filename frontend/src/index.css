@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(135deg, #FFD700, #B8860B);
+  }
+  
+  .gold-gradient-hover {
+    background: linear-gradient(135deg, #B8860B, #FFD700);
+  }
+  
+  .navy-gradient {
+    background: linear-gradient(135deg, #1e3a5f, #0f1e2e);
+  }
+  
+  .card-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gold-shadow {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
