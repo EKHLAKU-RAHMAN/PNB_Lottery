@@ -18,32 +18,36 @@ export const SocketProvider = ({ children }) => {
   const { token } = useAuth()
 
   useEffect(() => {
-    const socketInstance = io(import.meta.env.VITE_API_URL || 'http://localhost:5000', {
+    const socketUrl = import.meta.env.VITE_API_URL;
+    if (!socketUrl) {
+      console.error('VITE_API_URL environment variable is required for socket connection');
+      return;
+    }
+
+    const socketInstance = io(socketUrl, {
       auth: {
         token: token
       }
     })
 
     socketInstance.on('connect', () => {
-      console.log('Connected to server')
       setIsConnected(true)
     })
 
     socketInstance.on('disconnect', () => {
-      console.log('Disconnected from server')
       setIsConnected(false)
     })
 
     socketInstance.on('ticketCreated', (ticket) => {
-      console.log('New ticket created:', ticket)
+      // Handle ticket creation if needed
     })
 
     socketInstance.on('ticketUpdated', (ticket) => {
-      console.log('Ticket updated:', ticket)
+      // Handle ticket updates if needed
     })
 
     socketInstance.on('ticketDeleted', (data) => {
-      console.log('Ticket deleted:', data)
+      // Handle ticket deletion if needed
     })
 
     setSocket(socketInstance)

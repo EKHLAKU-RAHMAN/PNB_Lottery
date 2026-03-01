@@ -52,11 +52,10 @@ const createTicket = async (req, res) => {
       ticket
     });
   } catch (error) {
-    console.error('Create ticket error:', error);
     res.status(500).json({ 
       success: false,
       message: 'Server error', 
-      error: error.message 
+      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
     });
   }
 };

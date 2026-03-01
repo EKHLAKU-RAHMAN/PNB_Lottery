@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Search, Ticket, Phone, CheckCircle, XCircle, Clock } from 'lucide-react'
+import { Search, Ticket, CheckCircle, XCircle, Clock } from 'lucide-react'
 import { apiClient } from '../utils/api'
 
 const CheckTicketSection = () => {
   const [ticketNumber, setTicketNumber] = useState('')
-  // const [phoneNumber, setPhoneNumber] = useState('')
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState('')
@@ -70,21 +69,6 @@ const CheckTicketSection = () => {
                   required
                 />
               </div>
-
-              {/* <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <Phone className="inline h-4 w-4 mr-2" />
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent text-lg"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div> */}
 
               <motion.button
                 whileHover={{ scale: 1.02 }}

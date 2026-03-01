@@ -10,12 +10,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      },
-    },
-  },
+  // Removed proxy configuration since we're using deployed backend
+  // All API calls will go directly to VITE_API_URL (Render backend)
 })
