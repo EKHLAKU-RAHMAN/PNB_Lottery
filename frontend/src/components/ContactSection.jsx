@@ -41,7 +41,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 98765 43210',
+      value: '+91 8812876698',
       color: 'text-blue-600'
     },
     {

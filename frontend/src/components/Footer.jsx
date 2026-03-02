@@ -93,7 +93,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-gold" />
-                  <span className="text-gray-300">+91 98765 43210</span>
+                  <span className="text-gray-300">+91 8812876698</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-gold" />
@@ -143,7 +143,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <p className="text-gray-400 text-sm">
-                © 2024 Punjab Lottery Result. All rights reserved.
+                © 2026 Punjab Lottery Result. All rights reserved.
               </p>
             </motion.div>
             
