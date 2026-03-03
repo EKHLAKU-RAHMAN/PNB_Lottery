@@ -23,7 +23,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "https://punjablotteryresultonline.com",
     methods: ["GET", "POST"]
   }
 });
@@ -55,10 +55,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files in production
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../frontend/dist')));
-// }
+
 
 // API Routes
 app.use('/api/admin', adminRoutes);
@@ -74,12 +71,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Serve frontend in production
-// if (process.env.NODE_ENV === 'production') {
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-//   });
-// }
 
 // Error handling middleware
 app.use(errorHandler);
